@@ -1,0 +1,68 @@
+.container{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height:250px;
+}
+video{
+    width:400px;
+    height:400px;
+}
+.my_video{
+    margin-top:25px;
+}
+.user_video{
+    margin-top:25px;
+    margin-left:20px;
+}
+@media (max-width:768px){
+    video{
+        width:240px;
+        height:240px;
+    }
+}
+.form-input{
+    border:none;
+    border-radius:5px;
+    height:25px;
+    padding:10px;
+    margin:10px;
+}
+.form-input:focus{
+    border:none;
+    outline:none;
+}
+.user_input_container{
+    box-shadow: 5;
+    border-radius:5px;
+    background-color:rgb(236, 236, 236);
+    padding:25px;
+    margin:15px;
+    margin-left: 15px;
+    display : flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.user_input_two{
+    width:45%;
+    display : flex;
+    flex-direction:column;
+    margin-left:5px;
+}
+.user_input_one{
+    width:50%;
+    display : flex;
+    flex-direction:column;
+}
+@media(max-width:768px){
+    .user_input_container{
+        flex-direction: column;
+    }
+    .user_input_two{
+        width:100%;
+    }
+    .user_input_one{
+        width:100%;
+    }
+}

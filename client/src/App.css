@@ -1,0 +1,19 @@
+body{
+  background-color: rgb(248, 243, 243);
+  /* text-align: center; */
+}
+.container{
+    display: flex;
+    background-color:#ffffff;
+    margin:auto;
+    margin-bottom:0px;
+    margin-top:20px;
+    min-width:650px;
+    max-width: 1200px;
+}
+@media(max-width:768px){
+    .container{
+        min-width:250px;
+        max-width: 270px;
+    }
+}
