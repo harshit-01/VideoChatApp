@@ -2,6 +2,7 @@ import VideoPlayer from "./component/VideoPlayer";
 import Notification from "./component/Notification"
 import Options from "./component/Options";
 import ButtonAppBar from "./component/Navbar";
+import Share from "./component/Share";
 import './App.css';
 
 
@@ -20,6 +21,7 @@ function App() {
             <Notification>
             </Notification>
           </Options>
+          <Share />
         </div>
       </div>
     </div>

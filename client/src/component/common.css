@@ -139,3 +139,12 @@ video{
     color:floralwhite;
     border:1px solid rgb(233, 10, 10);
 }
+.share-container{
+    display: flex;
+    justify-content:start;
+    align-items:start;
+    margin-left:15px;
+    word-break:break-word;
+    flex-wrap: wrap;
+    flex-direction: column;
+}

@@ -45,7 +45,7 @@ export default function Options({children}){
                                 setIdToCall(e.target.value)
                             }}
                             style={{marginLeft:"0px"}}
-                            placeholder="Add friend id" 
+                            placeholder="Enter friend id" 
                             className="form-input"></input>
                            {
                                callAccepted && !callEnded ? (
