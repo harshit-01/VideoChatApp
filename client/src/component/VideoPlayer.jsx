@@ -9,6 +9,8 @@ import VideocamIcon from '@material-ui/icons/Videocam';
 import Tooltip from '@material-ui/core/Tooltip';
 import VolumeMuteIcon from '@material-ui/icons/VolumeMute';
 import VolumeUpIcon from '@material-ui/icons/VolumeUp';
+import ScreenShareIcon from '@material-ui/icons/ScreenShare';
+import StopScreenShareIcon from '@material-ui/icons/StopScreenShare';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -22,7 +24,7 @@ const useStyles = makeStyles(theme => ({
   }));
 
 export default function VideoPlayer(){
-    const {name,myVideo,callAccepted,callEnded,stream,call,userVideo,video,showVideo,setShowVideo,audio,setAudio} = useContext(SocketContext);
+    const {name,myVideo,callAccepted,callEnded,stream,call,userVideo,video,showVideo,setShowVideo,audio,setAudio,videoElem,startCapture,stopCapture} = useContext(SocketContext);
     const classes = useStyles();
     return (
         <div className="container">
@@ -65,6 +67,19 @@ export default function VideoPlayer(){
                             : 
                             <>
                                 <VolumeUpIcon fontSize ="large"></VolumeUpIcon>
+                            </>}
+                        </button>
+                    </Tooltip>
+                    <Tooltip title={videoElem?.length > 0 ? "Stop Share":"Share Screen"} placement="top" arrow>
+                        <button  variant="outlined" 
+                         className="btn_ss">
+                            {videoElem?.length > 0? 
+                            <>
+                                <StopScreenShareIcon fontSize ="large" onClick={(e)=>stopCapture(e)}/>
+                            </>
+                            : 
+                            <>
+                                <ScreenShareIcon fontSize ="large" onClick={()=>startCapture()}></ScreenShareIcon>
                             </>}
                         </button>
                     </Tooltip>

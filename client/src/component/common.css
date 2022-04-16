@@ -16,6 +16,7 @@ video{
     margin-top:25px;
     margin-left:20px;
     margin-right:10px;
+
 }
 @media (max-width:768px){
     video{
@@ -23,11 +24,11 @@ video{
         height:240px;
     }
 }
-/* @media(min-width:768px){
+@media(min-width:768px){
     .user_video{
         margin-bottom: 60px;
     }
-} */
+}
 .form-input{
     border:none;
     border-radius:5px;
@@ -87,6 +88,7 @@ video{
     font-size:16px;
     width: 80px;
     color:grey;
+    cursor:pointer;
 }
 .btn_show_video:hover{
     background-color:cyan;
@@ -101,6 +103,7 @@ video{
     font-size:16px;
     width: 80px;
     color:grey;
+    cursor:pointer;
 }
 .btn_audio:hover{
     background-color:rgb(224, 15, 15);
@@ -119,6 +122,7 @@ video{
     font-size:16px;
     width: 80px;
     color:grey;
+    cursor:pointer;
 }
 .btn_show_video_2:hover{
     background-color:cyan;
@@ -133,11 +137,27 @@ video{
     font-size:16px;
     width: 80px;
     color:grey;
+    cursor:pointer;
 }
 .btn_audio_2:hover{
     background-color:rgb(224, 15, 15);
     color:floralwhite;
     border:1px solid rgb(233, 10, 10);
+}
+.btn_ss{
+    padding:5px;
+    border-radius:5px;
+    background-color:#fff;
+    margin-bottom:10px;
+    font-size:16px;
+    width: 80px;
+    color:grey;
+    cursor:pointer;
+}
+.btn_ss:hover{
+    background-color:rgb(39, 225, 122);
+    color:floralwhite;
+    border:1px solid rgb(3, 193, 18);
 }
 .share-container{
     display: flex;

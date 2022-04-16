@@ -18,6 +18,7 @@ const ContextProvider = ({children})=>{
     const myVideo= useRef(null);
     const userVideo= useRef(null);
     const connectionRef= useRef();
+    const videoElem = useRef([]);
     const video = async()=>{
         await navigator.mediaDevices.getUserMedia({video:showVideo,audio:audio}).then((currentStream)=>{
             setStream(currentStream);
@@ -27,6 +28,12 @@ const ContextProvider = ({children})=>{
         });
     }
     var l=0;
+    var displayMediaOptions = {
+        video: {
+        cursor: "always"
+        },
+        audio: false
+    };
     useEffect(()=>{
         var a = setInterval(()=>{
             console.log(myVideo,l)
@@ -45,7 +52,21 @@ const ContextProvider = ({children})=>{
              setCall({isReceivedCall:true,from,name:callerName,signal})
          })
     },[showVideo,audio])
-
+    const startCapture = async()=>{
+        debugger;
+        try {
+            videoElem.srcObject = await navigator.mediaDevices.getDisplayMedia(displayMediaOptions);
+            // dumpOptionsInfo();
+        } catch(err) {
+            console.error("Error: " + err);
+        }
+    }
+    function stopCapture(evt) {
+        let tracks = videoElem.srcObject.getTracks();
+      
+        tracks.forEach(track => track.stop());
+        videoElem.srcObject = null;
+      }
     const answerCall = ()=>{
         setCallAccepted(true);
         const peer = new Peer({initiator: false, stream,trickle:false});
@@ -101,7 +122,10 @@ const ContextProvider = ({children})=>{
             showVideo,
             setShowVideo,
             setAudio,
-            audio
+            audio,
+            startCapture,
+            stopCapture,
+            videoElem
         }}>
             {children}
         </SocketContext.Provider>
