@@ -13,11 +13,13 @@ const ContextProvider = ({children})=>{
     const [callAccepted,setCallAccepted] = useState(false);
     const [callEnded,setCallEnded] = useState(false);
     const [name,setName]  = useState("");
+    const [showVideo,setShowVideo] = useState(true);
+    const [audio,setAudio] = useState(true);
     const myVideo= useRef(null);
     const userVideo= useRef(null);
     const connectionRef= useRef();
     const video = async()=>{
-        await navigator.mediaDevices.getUserMedia({video:true,audio:true}).then((currentStream)=>{
+        await navigator.mediaDevices.getUserMedia({video:showVideo,audio:audio}).then((currentStream)=>{
             setStream(currentStream);
             myVideo.current.srcObject = currentStream;
         }).catch(error => {
@@ -42,7 +44,7 @@ const ContextProvider = ({children})=>{
          socket.on("callUser",({from,name:callerName,signal})=>{
              setCall({isReceivedCall:true,from,name:callerName,signal})
          })
-    },[])
+    },[showVideo,audio])
 
     const answerCall = ()=>{
         setCallAccepted(true);
@@ -95,7 +97,11 @@ const ContextProvider = ({children})=>{
             callUser,
             leaveCall,
             answerCall,
-            video
+            video,
+            showVideo,
+            setShowVideo,
+            setAudio,
+            audio
         }}>
             {children}
         </SocketContext.Provider>

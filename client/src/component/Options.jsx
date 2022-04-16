@@ -28,13 +28,14 @@ export default function Options({children}){
                             placeholder="Name" 
                             className="form-input"></input>
                             {console.log(me)}
-                            <CopyToClipboard text={me}>
+                            {/* <CopyToClipboard text={me}> */}
                                 <Button variant="outlined" 
                                 color="primary"
+                                onClick={() => {navigator.clipboard.writeText(me)}}
                                 >
                                     <AssignmentIcon />{" "}Copy your id
                                 </Button>
-                            </CopyToClipboard>
+                            {/* </CopyToClipboard> */}
                         </div>
                         <div className="user_input_two">
                         <label id="name">Make a call</label> 
